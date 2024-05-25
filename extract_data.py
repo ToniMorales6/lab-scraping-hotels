@@ -23,7 +23,7 @@ while page_num <= max_pages:
     url = BASE_URL + ";pa-" + str(page_num)
     driver.get(url)  # Navigating to the constructed URL in the browser
 
-    time.sleep(5)
+    time.sleep(10)
 
     if first_page:
         try:
@@ -53,5 +53,6 @@ while page_num <= max_pages:
     print(page_num)
     page_num += 1
 
+print(df)
 nombre_archivo = 'datos.csv'
 df.to_csv(nombre_archivo, index=False)
