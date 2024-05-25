@@ -41,9 +41,9 @@ while page_num <= max_pages:
     scores = driver.find_elements(By.XPATH, '//span[@itemprop="ratingValue"]')
 
     # Extracting the text from each player element and storing in a list
-    name_list = [name.text for name in names]
-    price_list = [price.text for price in prices]
-    score_list = [score.text for score in scores]
+    name_list = [name.text.replace(",", "") for name in names]
+    price_list = [price.text.replace(",", "").replace("€", "") for price in prices]
+    score_list = [score.text.replace(",", "") for score in scores]
     
     # Pairing each player's name with their salary and year using the zip function
     data_tuples = list(zip(name_list[1:], price_list[1:], score_list[1:]))
